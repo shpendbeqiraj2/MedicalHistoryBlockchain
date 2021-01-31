@@ -1,5 +1,4 @@
 package peerToPeer;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.HashSet;
@@ -12,7 +11,17 @@ public class ServerThread extends Thread {
 			serverSocket = new ServerSocket(Integer.valueOf(portNumb));
 	}
 	public void run() {
-		
+		try {
+			while (true) {
+				ServerThreadThread serverThreadThread = new ServerThreadThread(serverSocket.accept(), this);
+				serverThreadThreads.add(serverThreadThread);
+				serverThreadThread.start();
+			}
+		} catch (Exception e) {e.printStackTrace();}		
+	}
+	void sendMessage(String message) {
+		try { serverThreadThreads.forEach(t-> t.getPrintWriter().println(message));
+		} catch (Exception e) {e.printStackTrace(); }		
 	}
 	public Set<ServerThreadThread> getServerThreadThreads(){return serverThreadThreads; }
 }
