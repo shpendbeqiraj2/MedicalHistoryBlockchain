@@ -1,4 +1,4 @@
-package com.za.networking.peertopeer;
+package peerToPeer;
 
 import java.io.IOException;
 import java.net.ServerSocket;

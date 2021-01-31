@@ -1,4 +1,4 @@
-package com.za.networking.peertopeer;
+package peerToPeer;
 
 public class ServerThreadThread extends Thread{
 

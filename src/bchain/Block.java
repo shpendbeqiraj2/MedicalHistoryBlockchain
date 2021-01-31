@@ -1,3 +1,4 @@
+package bchain;
 import java.time.Instant;
 
 public class Block {
