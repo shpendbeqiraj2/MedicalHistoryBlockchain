@@ -1,5 +1,5 @@
 package com.za.networking.peertopeer;
 
-public class ServerThreadThread {
+public class ServerThreadThread extends Thread{
 
 }
