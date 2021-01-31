@@ -21,6 +21,7 @@ public class Blockchain {
 		System.out.println(blockchainJson);
 
 		System.out.println("The chains are valid: "+validChain());
+		System.out.println("Testin gitignore");
 		
 	}
 	
