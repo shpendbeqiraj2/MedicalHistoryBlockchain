@@ -1,11 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package bchain;
-//import java.nio.charset.StandardCharsets;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ *
+ * @author shb96
+ */
 public class HashSHA256 {
-	
-	//Apply hash SHA-256 on string
+    
+    //Apply hash SHA-256 on string
 	public static String sha256(String string) {
 
 		try {
@@ -27,4 +36,5 @@ public class HashSHA256 {
 			return e.getMessage();
 		}
 	}
+    
 }

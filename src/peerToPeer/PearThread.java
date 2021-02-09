@@ -1,13 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package peerToPeer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import javax.json.*; 
-
-public class PearThread extends Thread{
-	private BufferedReader bufferedReader;
+import javax.json.Json;
+/**
+ *
+ * @author shb96
+ */
+public class PearThread extends Thread {
+    
+    private BufferedReader bufferedReader;
 	public PearThread(Socket socket) throws IOException{
 			bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	}
@@ -15,7 +24,7 @@ public class PearThread extends Thread{
 		boolean flag = true;
 		while (flag) {
 			try { 
-				javax.json.JsonObject jsonObject = Json.createReader(bufferedReader). readObject();
+				javax.json.JsonObject jsonObject = Json.createReader(bufferedReader).readObject();
 				if (jsonObject.containsKey("username"))
 					System.out.println("["+jsonObject.getString("username")+"]: "+jsonObject.getString("message"));
 			} catch(Exception e) {
@@ -24,4 +33,5 @@ public class PearThread extends Thread{
 			}
 		}
 	}
+    
 }

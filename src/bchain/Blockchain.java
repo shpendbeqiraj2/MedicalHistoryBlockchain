@@ -1,13 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package bchain;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import com.google.gson.GsonBuilder;
 
-
-
+/**
+ *
+ * @author shb96
+ */
 public class Blockchain {
-
-	public static ArrayList<Block> blockchain = new ArrayList<Block>(); 
+    public static ArrayList<Block> blockchain = new ArrayList<Block>(); 
 	
 	public static void main(String[] args) {
 		
@@ -40,5 +46,4 @@ public class Blockchain {
 
 		return true;
 	}
-
 }

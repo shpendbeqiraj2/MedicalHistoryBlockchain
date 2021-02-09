@@ -1,9 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package bchain;
+
 import java.time.Instant;
 
+/**
+ *
+ * @author shb96
+ */
 public class Block {
-
-	public int blocknumber;
+    
+    public int blocknumber;
 	public String hash;
 	public String previousHash;
 	public long timeStamp;
@@ -21,6 +31,7 @@ public class Block {
 		this.hash = mineBlock(this.hash,difficulty);
 	}
 	
+	
 
 	//Helper function for calculating the hash
 	public String calculateHash(int nonce) {
@@ -35,7 +46,7 @@ public class Block {
 	public String mineBlock(String hash,int difficulty) {
 		
 		//Create a string with leading zeros
-		String target = new String(new char[difficulty]).replace('\0', '0');
+		String target = new String(new char[difficulty]).replace('\0', '0'); //
 		
 		System.out.println("Block number : " + this.blocknumber);
 		
@@ -49,4 +60,5 @@ public class Block {
 		System.out.println("Block Mined!!! : " + hash+"\n");
 		return hash;
 	}
+    
 }

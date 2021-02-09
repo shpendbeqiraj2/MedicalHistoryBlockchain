@@ -1,4 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package peerToPeer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,12 +12,16 @@ import java.io.StringWriter;
 import java.net.Socket;
 import javax.json.Json;
 
+/**
+ *
+ * @author shb96
+ */
 public class Peer {
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("> enter username & port # for this peer:");
-		String[] setupValues = bufferedReader.readLine().split("");
-        ServerThread serverThread = new ServerThread(setupValues[1]);
+		String[] setupValues = bufferedReader.readLine().split(" ");
+                ServerThread serverThread = new ServerThread(setupValues[1]);
 		serverThread.start();
 		try {
 			new Peer().updateListenToPeers(bufferedReader, setupValues[0],serverThread);
@@ -62,4 +72,5 @@ public class Peer {
 			System.exit(0);
 		} catch (Exception e) {}	
 	}
+    
 }
