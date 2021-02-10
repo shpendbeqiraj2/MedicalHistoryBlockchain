@@ -7,6 +7,7 @@ package bchain;
 
 import java.util.ArrayList;
 import com.google.gson.GsonBuilder;
+import medicalReport.Report;
 
 /**
  *
@@ -16,10 +17,11 @@ public class Blockchain {
     public static ArrayList<Block> blockchain = new ArrayList<Block>(); 
 	
 	public static void main(String[] args) {
+            //String patientName, String patientSurname, String doctor, String report, String analysis
 		
-		blockchain.add(new Block(blockchain.size()+1,"0","Testing with genesis block",1));
-		blockchain.add(new Block(blockchain.size()+1,blockchain.get(blockchain.size()-1).hash,"Testing with second block",2));
-		blockchain.add(new Block(blockchain.size()+1,blockchain.get(blockchain.size()-1).hash,"Testing with third block",3));
+		blockchain.add(new Block(blockchain.size()+1,"0",new Report("Verona","Avdyli","Astrit","Covid-19","Positive"),1));
+		blockchain.add(new Block(blockchain.size()+1,blockchain.get(blockchain.size()-1).hash,new Report("Shpend","Beqiraj","Astrit","Covid-19","Negative"),2));
+		blockchain.add(new Block(blockchain.size()+1,blockchain.get(blockchain.size()-1).hash,new Report("Ereza","Azizi","Astrit","Covid-19","Positive"),3));
 		
 		
 		//Json views

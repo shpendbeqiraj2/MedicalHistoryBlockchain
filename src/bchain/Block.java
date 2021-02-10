@@ -6,6 +6,7 @@
 package bchain;
 
 import java.time.Instant;
+import medicalReport.Report;
 
 /**
  *
@@ -17,12 +18,12 @@ public class Block {
 	public String hash;
 	public String previousHash;
 	public long timeStamp;
-	private String data;
+	private Report data;
 	private int nonce;
 	
 	
 	//Block constructor
-	public Block(int blocknumber, String previousHash, String data,int difficulty) {
+	public Block(int blocknumber, String previousHash, Report data,int difficulty) {
 		this.blocknumber = blocknumber;
 		this.previousHash = previousHash;
 		this.timeStamp = Instant.now().toEpochMilli();
