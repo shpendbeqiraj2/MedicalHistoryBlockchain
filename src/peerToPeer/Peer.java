@@ -14,7 +14,7 @@ import java.net.Socket;
 import javax.json.Json;
 
 /**
- *
+ * 
  * @author shb96
  */
 public class Peer
