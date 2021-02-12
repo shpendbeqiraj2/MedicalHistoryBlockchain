@@ -17,21 +17,45 @@ import javax.json.Json;
 public class PearThread extends Thread {
     
     private BufferedReader bufferedReader;
-	public PearThread(Socket socket) throws IOException{
-			bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-	}
-	public void run() {
-		boolean flag = true;
-		while (flag) {
-			try { 
-				javax.json.JsonObject jsonObject = Json.createReader(bufferedReader).readObject();
-				if (jsonObject.containsKey("username"))
-					System.out.println("["+jsonObject.getString("username")+"]: "+jsonObject.getString("message"));
-			} catch(Exception e) {
-				flag = false;
-				interrupt();
-			}
-		}
-	}
+    private String newMessageFromPeer;
+    
+    public PearThread(Socket socket) throws IOException
+    {
+        bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        newMessageFromPeer = null;
+    }
+    
+    @Override
+    public void run() 
+    {
+        boolean flag = true;
+        
+        while (flag) {
+            try { 
+                javax.json.JsonObject jsonObject = Json.createReader(bufferedReader).readObject();
+                if (jsonObject.containsKey("username"))
+                {
+                    newMessageFromPeer = jsonObject.toString();
+                    //System.out.println("["+jsonObject.getString("username")+"]: "+jsonObject.getString("report"));
+                    System.out.println(jsonObject.toString());
+                }
+                
+            } 
+            catch(Exception e) 
+            {
+                flag = false;
+                interrupt();
+            }
+        }
+    }
+    
+    public String getNewMessageFromPeer() {
+        return newMessageFromPeer;
+    }
+
+    public void setNewMessageFromPeer(String newMessageFromPeer) {
+        this.newMessageFromPeer = newMessageFromPeer;
+    }
+    
     
 }
