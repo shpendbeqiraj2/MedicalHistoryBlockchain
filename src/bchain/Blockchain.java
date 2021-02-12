@@ -91,13 +91,13 @@ public class Blockchain {
                     {
                         //patientName;patientSurname;report;analysis
                         Report report = new Report(reportFields[0],reportFields[1],jsonReport.get("username").toString(),reportFields[2],reportFields[3]);
-                        blockchain.add(new Block(blockchain.size()+1,"0",report,1));
+                        blockchain.add(new Block(blockchain.size()+1,blockchain.get(blockchain.size()-1).hash,report,1));
                     }
                     else if(reportFields.length == 5)
                     {
                         //patientName;patientSurname;report;analysis;mikro
                         MikroReport report = new MikroReport(reportFields[0],reportFields[1],jsonReport.get("username").toString(),reportFields[2],reportFields[3],reportFields[4]);
-                        blockchain.add(new Block(blockchain.size()+1,"0",report,1));
+                        blockchain.add(new Block(blockchain.size()+1,blockchain.get(blockchain.size()-1).hash,report,1));
                     }
                     else if(jsonReport.get("report").toString().trim().equalsIgnoreCase("\"validate\""))
                     {
